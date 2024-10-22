@@ -10,7 +10,7 @@
   <div class="text-center">
     <h1 class="text-3xl font-bold text-black mb-4">Perguntas sobre o Namorado</h1>
 
-    <form onsubmit="return validarFormularioNamorado()">
+    <form id="formulario" onsubmit="return validarFormularioNamorado()">
       <label class="block mb-2">Qual o nome do seu namorado?</label>
       <input
         type="text"
@@ -80,8 +80,9 @@
         return false;
       }
 
+      // Se todas as condições forem atendidas, redireciona para a página final
       window.location.href = "presente.html"; 
-      return false; 
+      return false; // Impede o envio do formulário
     }
   </script>
 </body>
