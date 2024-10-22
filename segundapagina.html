@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Verificação de Identidade</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      let belezaCorrigida = false;
+
+      function validarFormulario(event) {
+        event.preventDefault(); // Evita o comportamento padrão de envio
+
+        const primeiroNome = document.getElementById("primeiroNome").value;
+        const segundoNome = document.getElementById("segundoNome").value;
+        const idade = document.getElementById("idade").value;
+        let beleza = document.getElementById("nivelBeleza").value;
+
+        if (primeiroNome.toLowerCase() !== "maria") {
+          alert("Nome errado!");
+          return false;
+        }
+
+        if (segundoNome.toLowerCase() !== "clara") {
+          alert("Segundo nome errado!");
+          return false;
+        }
+
+        if (idade != 19) {
+          if (idade == 18) {
+            alert("Esqueceu que fez aniversário? Tente de novo.");
+          } else {
+            alert("Idade errada!");
+          }
+          return false;
+        }
+
+        if (!belezaCorrigida) {
+          alert("Só isso? Tá errado.");
+          beleza = "9999999";
+          document.getElementById("nivelBeleza").value = beleza;
+          alert("Vou arrumar isso, olha de novo:");
+          belezaCorrigida = true;
+          return false;
+        }
+
+        // Se tudo estiver correto, redirecionar para a próxima página
+        window.location.href = 'paginanamorado.html';
+      }
+    </script>
+  </head>
+  <body class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="text-center">
+      <h1 class="text-3xl font-bold text-black mb-4">Preencha o Formulário</h1>
+      <p class="text-lg mb-4">Se você realmente é ela, preencha o formulário a seguir:</p>
+
+      <form onsubmit="validarFormulario(event)">
+        <label class="block mb-2">Primeiro Nome:</label>
+        <input
+          type="text"
+          id="primeiroNome"
+          class="border border-gray-300 px-4 py-2 mb-4"
+          placeholder="Digite aqui"
+        />
+
+        <label class="block mb-2">Segundo Nome:</label>
+        <input
+          type="text"
+          id="segundoNome"
+          class="border border-gray-300 px-4 py-2 mb-4"
+          placeholder="Digite aqui"
+        />
+
+        <label class="block mb-2">Idade:</label>
+        <input
+          type="number"
+          id="idade"
+          class="border border-gray-300 px-4 py-2 mb-4"
+          placeholder="Digite aqui"
+        />
+
+        <label class="block mb-2">Nível de Beleza (de 0 a 10):</label>
+        <input
+          type="text"
+          id="nivelBeleza"
+          class="border border-gray-300 px-4 py-2 mb-4"
+          placeholder="Digite aqui"
+        />
+
+        <button
+          type="submit"
+          class="bg-black text-white py-2 px-4 rounded hover:bg-gray-800"
+        >
+          Próxima Página
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verificação do Namorado</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+  <div class="text-center">
+    <h1 class="text-3xl font-bold text-black mb-4">Perguntas sobre o Namorado</h1>
+
+    <form onsubmit="return validarFormularioNamorado()">
+      <label class="block mb-2">Qual o nome do seu namorado?</label>
+      <input
+        type="text"
+        id="nomeNamorado"
+        class="border border-gray-300 px-4 py-2 mb-4"
+        placeholder="Digite aqui"
+      />
+
+      <label class="block mb-2">Idade dele:</label>
+      <input
+        type="number"
+        id="idadeNamorado"
+        class="border border-gray-300 px-4 py-2 mb-4"
+        placeholder="Digite aqui"
+      />
+
+      <label class="block mb-2">Você tem CERTEZA que quer abrir?</label>
+      <input
+        type="radio"
+        id="certezaSim"
+        name="certeza"
+        value="Sim"
+        class="mr-2"
+      />
+      <label for="certezaSim">Sim</label>
+      <input
+        type="radio"
+        id="certezaNao"
+        name="certeza"
+        value="Não"
+        class="ml-4 mr-2"
+      />
+      <label for="certezaNao">Não</label>
+
+      <button
+        type="submit"
+        class="bg-black text-white py-2 px-4 rounded hover:bg-gray-800 mt-4"
+      >
+        Próxima Página
+      </button>
+    </form>
+  </div>
+
+  <script>
+    function validarFormularioNamorado() {
+      const nomeNamorado = document.getElementById("nomeNamorado").value.toLowerCase();
+      const idadeNamorado = document.getElementById("idadeNamorado").value;
+      const certeza = document.querySelector('input[name="certeza"]:checked');
+
+      // Verifica se o nome do namorado é "pedro"
+      if (nomeNamorado !== "pedro") {
+        alert("Você tem outro namorado???");
+        return false;
+      }
+
+      // Verifica se a idade do namorado é 21
+      if (idadeNamorado != 21) {
+        alert("Você tem outro namorado???");
+        return false;
+      }
+
+      // Verifica se alguma opção de certeza foi escolhida
+      if (!certeza) {
+        alert("Por favor, selecione se tem certeza ou não.");
+        return false;
+      }
+
+      // Verifica se a pessoa escolheu "Não"
+      if (certeza.value === "Não") {
+        alert("Você não quer abrir?");
+        return false;
+      }
+
+      // Redireciona para a página final
+      window.location.href = "Flores-azules-main/index.html"; 
+      return true;
+    }
+  </script>
+</body>
+</html>
