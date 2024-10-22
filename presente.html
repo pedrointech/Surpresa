@@ -3,50 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verificação do Namorado</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    @keyframes shine {
-      0% { color: #d1d5db; }
-      20% { color: white; }
-      40% { color: #d1d5db; }
-      60% { color: white; }
-      80% { color: #d1d5db; }
-      100% { color: white; }
-    }
-
-    .shine span:nth-child(1) {
-      animation: shine 1s infinite;
-    }
-
-    .shine span:nth-child(2) {
-      animation: shine 1s infinite 0.2s;
-    }
-
-    .shine span:nth-child(3) {
-      animation: shine 1s infinite 0.4s;
-    }
-
-    .shine span:nth-child(4) {
-      animation: shine 1s infinite 0.6s;
-    }
-  </style>
 </head>
-<body class="bg-black flex items-center justify-center min-h-screen">
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
   <div class="text-center">
-    <img alt="A gift box with a golden ribbon" class="mx-auto mb-6" height="300" src="https://storage.googleapis.com/a1aa/image/f56YoTHyTS2De0qzZXHj7QA3iEN1wixDHfJ3bpfJKVxMQukOB.jpg" width="300"/>
-    <h1 class="text-gray-300 text-4xl font-semibold mb-4 shine">
-      <span>A</span><span>M</span><span>O</span><span>R</span>
-    </h1>
-    <p class="text-green-400 text-lg mb-6">
-      É um presente muito especial, espero que goste!!
-    </p>
-    <div class="mt-4">
-      <a href="final.html">
-        <button class="bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-600">
-          Abrir presente
-        </button>
-      </a>
-    </div>
+    <h1 class="text-3xl font-bold text-black mb-4">Perguntas sobre o Namorado</h1>
+
+    <form onsubmit="return validarFormularioNamorado()">
+      <label class="block mb-2">Qual o nome do seu namorado?</label>
+      <input
+        type="text"
+        id="nomeNamorado"
+        class="border border-gray-300 px-4 py-2 mb-4"
+        placeholder="Digite aqui"
+      />
+
+      <label class="block mb-2">Idade dele:</label>
+      <input
+        type="number"
+        id="idadeNamorado"
+        class="border border-gray-300 px-4 py-2 mb-4"
+        placeholder="Digite aqui"
+      />
+
+      <label class="block mb-2">Você tem CERTEZA que quer abrir?</label>
+      <input
+        type="radio"
+        id="certezaSim"
+        name="certeza"
+        value="Sim"
+        class="mr-2"
+      />
+      <label for="certezaSim">Sim</label>
+      <input
+        type="radio"
+        id="certezaNao"
+        name="certeza"
+        value="Não"
+        class="ml-4 mr-2"
+      />
+      <label for="certezaNao">Não</label>
+
+      <button
+        type="submit"
+        class="bg-black text-white py-2 px-4 rounded hover:bg-gray-800 mt-4"
+      >
+        Próxima Página
+      </button>
+    </form>
   </div>
+
+  <script>
+    function validarFormularioNamorado() {
+      const nomeNamorado = document.getElementById("nomeNamorado").value.toLowerCase();
+      const idadeNamorado = document.getElementById("idadeNamorado").value;
+      const certeza = document.querySelector('input[name="certeza"]:checked');
+
+      if (nomeNamorado !== "pedro") {
+        alert("Você tem outro namorado???");
+        return false;
+      }
+
+      if (idadeNamorado != 21) {
+        alert("Você tem outro namorado???");
+        return false;
+      }
+
+      if (!certeza) {
+        alert("Por favor, selecione se tem certeza ou não.");
+        return false;
+      }
+
+      if (certeza.value === "Não") {
+        alert("Você não quer abrir?");
+        return false;
+      }
+
+      // Se todas as condições forem atendidas, redireciona para a página final
+      window.location.href = "presente.html"; 
+      return false; // Impede o envio do formulário
+    }
+  </script>
 </body>
 </html>
