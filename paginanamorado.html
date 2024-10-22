@@ -11,7 +11,7 @@
     <h1 class="text-3xl font-bold text-black mb-4">Perguntas sobre o Namorado</h1>
 
     <form id="formulario" onsubmit="return validarFormularioNamorado()">
-      <label class="block mb-2">Qual o nome do seu namorado?</label>
+      <label class="block mb-2">Qual o primeiro nome do seu namorado?</label>
       <input
         type="text"
         id="nomeNamorado"
@@ -61,12 +61,12 @@
       const certeza = document.querySelector('input[name="certeza"]:checked');
 
       if (nomeNamorado !== "pedro") {
-        alert("Seu namorado não é Pedro?");
+        alert("Você tem outro namorado???");
         return false;
       }
 
       if (idadeNamorado !== 21) {
-        alert("A idade dele não é 21?");
+        alert("Por favor selecione a idade correta?");
         return false;
       }
 
