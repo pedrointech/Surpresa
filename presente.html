@@ -1,32 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <img class="img" src="cajita.webp" alt="Descripción de la imagen">
-    <title>I LOVE- ENCODED.PE</title>
-</head>
-<body>
-    <div class="greetings">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes shine {
+      0% { color: #d1d5db; }
+      20% { color: white; }
+      40% { color: #d1d5db; }
+      60% { color: white; }
+      80% { color: #d1d5db; }
+      100% { color: white; }
+    }
 
-        <span>A</span>
-        <span>M</span>
-        <span>O</span>
-        <span>R</span>
-    </div>
-    <div class="greetings">
-      
-    </div>
-    <div class="description">
-        <span>"É um presente muito especial, espero que goste."!!</span>
-    </div>
-    <div class="button">
-        <button>
-            <a href="FLORES.html">Abrir presente</a>
+    .shine span:nth-child(1) {
+      animation: shine 1s infinite;
+    }
+
+    .shine span:nth-child(2) {
+      animation: shine 1s infinite 0.2s;
+    }
+
+    .shine span:nth-child(3) {
+      animation: shine 1s infinite 0.4s;
+    }
+
+    .shine span:nth-child(4) {
+      animation: shine 1s infinite 0.6s;
+    }
+  </style>
+</head>
+<body class="bg-black flex items-center justify-center min-h-screen">
+  <div class="text-center">
+    <img alt="A gift box with a golden ribbon" class="mx-auto mb-6" height="300" src="https://storage.googleapis.com/a1aa/image/f56YoTHyTS2De0qzZXHj7QA3iEN1wixDHfJ3bpfJKVxMQukOB.jpg" width="300"/>
+    <h1 class="text-gray-300 text-4xl font-semibold mb-4 shine">
+      <span>A</span><span>M</span><span>O</span><span>R</span>
+    </h1>
+    <p class="text-green-400 text-lg mb-6">
+      É um presente muito especial, espero que goste!!
+    </p>
+    <div class="mt-4">
+      <a href="FLORES.html">
+        <button class="bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-600">
+          Abrir presente
         </button>
-        
+      </a>
     </div>
+  </div>
 </body>
 </html>
