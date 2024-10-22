@@ -57,16 +57,16 @@
   <script>
     function validarFormularioNamorado() {
       const nomeNamorado = document.getElementById("nomeNamorado").value.toLowerCase();
-      const idadeNamorado = document.getElementById("idadeNamorado").value;
+      const idadeNamorado = parseInt(document.getElementById("idadeNamorado").value, 10);
       const certeza = document.querySelector('input[name="certeza"]:checked');
 
       if (nomeNamorado !== "pedro") {
-        alert("Você tem outro namorado???");
+        alert("Seu namorado não é Pedro?");
         return false;
       }
 
-      if (idadeNamorado != 21) {
-        alert("Você tem outro namorado???");
+      if (idadeNamorado !== 21) {
+        alert("A idade dele não é 21?");
         return false;
       }
 
@@ -80,9 +80,8 @@
         return false;
       }
 
-      // Se todas as condições forem atendidas, redireciona para a página final
       window.location.href = "presente.html"; 
-      return false; // Impede o envio do formulário
+      return false; 
     }
   </script>
 </body>
