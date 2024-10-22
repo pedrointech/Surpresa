@@ -60,33 +60,29 @@
       const idadeNamorado = document.getElementById("idadeNamorado").value;
       const certeza = document.querySelector('input[name="certeza"]:checked');
 
-      // Verifica se o nome do namorado é "pedro"
       if (nomeNamorado !== "pedro") {
         alert("Você tem outro namorado???");
         return false;
       }
 
-      // Verifica se a idade do namorado é 21
       if (idadeNamorado != 21) {
         alert("Você tem outro namorado???");
         return false;
       }
 
-      // Verifica se alguma opção de certeza foi escolhida
       if (!certeza) {
         alert("Por favor, selecione se tem certeza ou não.");
         return false;
       }
 
-      // Verifica se a pessoa escolheu "Não"
       if (certeza.value === "Não") {
         alert("Você não quer abrir?");
         return false;
       }
 
-      // Redireciona para a página final
+      // Se todas as condições forem atendidas, redireciona para a página final
       window.location.href = "presente.html"; 
-      return true;
+      return false; // Impede o envio do formulário
     }
   </script>
 </body>
